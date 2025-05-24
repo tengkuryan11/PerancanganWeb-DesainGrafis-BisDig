@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HealthConsult - Homepage</title>
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #eef6f9;
+    color: #222;
+    line-height: 1.5;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1080px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  /* Header */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    background: white;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: #2c7a7b;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+  }
+  nav ul li a {
+    text-decoration: none;
+    color: #2c7a7b;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  nav ul li a:hover,
+  nav ul li a:focus {
+    background-color: #285e61;
+    color: white;
+    outline: none;
+  }
+
+  /* Hero Section */
+  .hero {
+    display: flex;
+    background: #2c7a7b;
+    border-radius: 12px;
+    overflow: hidden;
+    color: white;
+    box-shadow: 0 10px 20px rgb(44 122 123 / 0.5);
+    margin: 40px 0 70px 0;
+  }
+  .hero-text {
+    flex: 1;
+    padding: 60px;
+  }
+  .hero-text h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    text-shadow: 0 2px 8px rgb(0 0 0 / 0.4);
+  }
+  .hero-text p {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 35px;
+    text-shadow: 0 1px 5px rgb(0 0 0 / 0.3);
+  }
+  .btn-primary {
+    display: inline-block;
+    padding: 15px 40px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    background: #f6ad55;
+    color: #3b2f2f;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgb(246 173 85 / 0.65);
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background: #dd6b20;
+    box-shadow: 0 6px 18px rgb(221 107 32 / 0.85);
+    outline: none;
+  }
+  .hero-image {
+    flex: 1;
+    background: url('https://images.unsplash.com/photo-1588776814546-c61d4050b08c?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+    filter: brightness(1.15);
+  }
+
+  /* Features Section */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap: 28px;
+    margin-bottom: 70px;
+  }
+  .feature-card {
+    background: white;
+    border-radius: 14px;
+    padding: 30px 25px;
+    box-shadow: 0 6px 16px rgb(0 0 0 / 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+    user-select: none;
+  }
+  .feature-card:hover,
+  .feature-card:focus-within {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgb(0 0 0 / 0.2);
+    outline: none;
+  }
+  .feature-icon {
+    font-size: 48px;
+    color: #f6ad55;
+    margin-bottom: 18px;
+  }
+  .feature-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #2c7a7b;
+    margin-bottom: 10px;
+  }
+  .feature-desc {
+    font-size: 1rem;
+    color: #444;
+  }
+
+  /* Testimonial */
+  .testimonial {
+    max-width: 720px;
+    margin: auto;
+    background: #fef3d9;
+    border-left: 6px solid #f6ad55;
+    padding: 25px 35px;
+    font-style: italic;
+    font-size: 1.15rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgb(246 173 85 / 0.35);
+    user-select: none;
+  }
+  .testimonial-footer {
+    margin-top: 12px;
+    font-weight: 700;
+    text-align: right;
+    color: #bb6b20;
+  }
+
+  /* Footer */
+  footer {
+    background: #2c7a7b;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 0.9rem;
+    user-select: none;
+  }
+  footer a {
+    color: #f6ad55;
+    margin: 0 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  footer a:hover,
+  footer a:focus {
+    color: #ffdba1;
+    outline: none;
+  }
+
+  /* Responsive */
+  @media(max-width:720px) {
+    .hero {
+      flex-direction: column;
+    }
+    .hero-image {
+      height: 280px;
+      width: 100%;
+      filter: brightness(1.05);
+      border-radius: 0 0 12px 12px;
+    }
+    .hero-text {
+      padding: 40px 25px;
+      text-align: center;
+    }
+  }
+</style>
+</head>
+<body>
+  <header role="banner" class="container" aria-label="Navigasi utama aplikasi">
+    <div class="logo" tabindex="0" aria-label="Logo HealthConsult">HealthConsult</div>
+    <nav role="navigation" aria-label="Menu utama">
+      <ul>
+        <li><a href="#" tabindex="0">Home</a></li>
+        <li><a href="#" tabindex="0">Layanan</a></li>
+        <li><a href="#" tabindex="0">Tentang</a></li>
+        <li><a href="#" tabindex="0">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container" role="main">
+    <!-- Hero Section -->
+    <section class="hero" aria-label="Bagian sambutan utama">
+      <article class="hero-text">
+        <h1 tabindex="0">Konsultasi Kesehatan Cepat dan Profesional</h1>
+        <p tabindex="0">Dapatkan layanan kesehatan berkualitas dari dokter terbaik tanpa harus keluar rumah.</p>
+        <button class="btn-primary" aria-label="Mulai konsultasi sekarang" tabindex="0" onclick="alert('Fitur konsultasi segera hadir!')">Mulai Konsultasi</button>
+      </article>
+      <div class="hero-image" aria-hidden="true" role="img" aria-label="Ilustrasi konsultasi kesehatan online"></div>
+    </section>
+
+    <!-- Features Section -->
+    <section aria-label="Fitur utama layanan">
+      <div class="features">
+        <article class="feature-card" tabindex="0" aria-label="Fitur Chat dengan Dokter">
+          <div class="feature-icon" aria-hidden="true">🩺</div>
+          <h3 class="feature-title">Chat dengan Dokter</h3>
+          <p class="feature-desc">Konsultasi cepat melalui chat langsung dengan dokter berlisensi.</p>
+        </article>
+        <article class="feature-card" tabindex="0" aria-label="Fitur Penjadwalan Konsultasi Fleksibel">
+          <div class="feature-icon" aria-hidden="true">⏰</div>
+          <h3 class="feature-title">Penjadwalan Fleksibel</h3>
+          <p class="feature-desc">Atur waktu konsultasi sesuai kebutuhan dan kenyamanan Anda.</p>
+        </article>
+        <article class="feature-card" tabindex="0" aria-label="Fitur Catatan Kesehatan Digital">
+          <div class="feature-icon" aria-hidden="true">📋</div>
+          <h3 class="feature-title">Catatan Kesehatan Digital</h3>
+          <p class="feature-desc">Simpan riwayat kesehatan secara digital yang mudah diakses kapan saja.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section aria-label="Testimonial pengguna">
+      <blockquote class="testimonial" tabindex="0">
+        “Layanan ini sangat membantu, dokter responsif dan konsultasi berjalan lancar!”  
+        <footer class="testimonial-footer">- Rina, pengguna setia</footer>
+      </blockquote>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo" aria-label="Footer informasi">
+    <p>© 2024 HealthConsult. Semua hak cipta dilindungi.</p>
+    <p>
+      <a href="#" aria-label="Kebijakan Privasi">Kebijakan Privasi</a> | 
+      <a href="#" aria-label="Syarat dan Ketentuan">Syarat &amp; Ketentuan</a> | 
+      <a href="#" aria-label="Hubungi Kami">Hubungi Kami</a>
+    </p>
+    <p>
+      Ikuti kami di 
+      <a href="#" aria-label="Facebook">Facebook</a>, 
+      <a href="#" aria-label="Twitter">Twitter</a>, dan 
+      <a href="#" aria-label="Instagram">Instagram</a>
+    </p>
+  </footer>
+</body>
+</html>
